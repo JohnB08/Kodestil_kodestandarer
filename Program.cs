@@ -34,5 +34,28 @@ class Program
         //hvor numArr[0] = 3, 
         //mens på linje 23, definerer vi et array på lengde 3, med default verdier for ints
         //i hver posisjon. 
+
+
+        //I expressions, spesielt i LinQ spørringer, delegater eller andre lambda funksjoner
+        //er det lurt å være så beskrivende som mulig.
+        //Det samme gjelder også variabelnavn generelt.
+        //Vell og merke, med variabelnavn er det ingen full standard, men vi annbefaler å være så beskrivende som mulig, siden andre enn deg skal
+        //lese koden din. 
+        
+        //Vell og merke, når det kommer til variabelnavn er det ganske mye debatt.
+
+
+        //Se forskjellen mellom følgende spørringer:
+
+        var res = names.Where(n=>n.StartsWith("a", StringComparison.InvariantCultureIgnoreCase));
+        //Det kan være vanskelig å vite både hva res faktisk er, og hva n kan være. 
+        //for deg som koder, og som har logikken i hodet, er det lett å følge, men det kan likevell være lett å miste helhetsbildet, når vi ikke bruker gode beskrivende navn.
+        //Denne måten å skrive spørringer på vil dere se ofte i større sql kodebaser, hvor statistikkerene sparer tid. Der er det veldig vanlig å bare bruke
+        //single letter naming for å gi alias til tabellene de gjør spørringer mot.
+        //Men det kan være lurt, i allfall mens dere er ny til lambda expressions, å prøve å være så beskrivende som mulig, slik at dere har oversikt over hva dere jobber med til en hver tid.
+
+        var namesStartingWithA = names.Where(name=>name.StartsWith("a", StringComparison.InvariantCultureIgnoreCase));
+        //Her er det ganske åpenbart hva spørringen vil gjøre, og hva hvert element i names er. 
+
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace Kodestil_kodestandarer;
+﻿using System.Runtime.CompilerServices;
+using System.Text;
+
+namespace Kodestil_kodestandarer;
 
 class Program
 {
@@ -67,7 +70,32 @@ class Program
         IEnumerable<string>? namesStartingWithJ = names.Where(name => name.StartsWith("j", StringComparison.InvariantCultureIgnoreCase));
         //Her er det veldig åpenbart at namesStartingWithJ fremdeles representerer en Interface, og har ikke blitt "kollapset" til en faktisk spørring mot datasettet names enda. 
         //Dette valget er mer smak og behag, men det er definitivt et verktøy som kan hjelpe hvis man føler man mister oversikt over hva man jobber med til en hver tid. 
+        //Hovedregelen er å bare bruke var når det er tydlig for leseren hva type variablen får av expressionen på
+        //høyre siden av definisjonstegnet.
 
-        
+        //Strings:
+
+
+        //Skal du concatenate korte strenger, bruk string interpolation:
+
+        string firstTwoNamesOfNames = $"{names[0]}, {names[1]}";
+
+        //Skal du loope gjennom, og concatenate flere strenger sammen til en lengre streng, gjør det til vane å bruke StringBuilder.
+        var allTheNames = new StringBuilder();
+        names.ForEach(name => allTheNames.Append(name));
+        Console.WriteLine(allTheNames);
+
+        //Hvis du trenger special characters og spesiell tekst formatering. 
+        //Bruk string literals:
+
+        var text = """
+        Hello, I am formatted text.
+
+            I can contain "special characters"
+        normally not allowed in a string.
+        Like \n and \t and \b without escaping them.
+        """;
+        Console.WriteLine(text);
+        //Legg merke til at formateringen er beholdt i terminalen. 
     }
 }

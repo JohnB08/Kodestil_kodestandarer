@@ -56,6 +56,18 @@ class Program
 
         var namesStartingWithA = names.Where(name=>name.StartsWith("a", StringComparison.InvariantCultureIgnoreCase));
         //Her er det ganske åpenbart hva spørringen vil gjøre, og hva hvert element i names er. 
+        //Legg merke til hvor beskrivende standardbiblioteket er i navngivningen sin. 
+        //f.eks se på stringcomparison structen. Det er veldig selvforklarende ved å lese navnet på valgt enumverdi, hva som kommer til å skje.
+        //StringComparison navnet, gjør det åpenbart at denne enumen er her for å gi valg for hvordan strings skal sammenlignes,
+        //InvariantCultureIgnoreCase forteller veldig tydlig hva dette valget gjør.
 
+
+        //En annen ting dere gjerne kan gjøre, spesielt nå når dere er ny, er å bruke explicit types, isteden for var. 
+
+        IEnumerable<string>? namesStartingWithJ = names.Where(name => name.StartsWith("j", StringComparison.InvariantCultureIgnoreCase));
+        //Her er det veldig åpenbart at namesStartingWithJ fremdeles representerer en Interface, og har ikke blitt "kollapset" til en faktisk spørring mot datasettet names enda. 
+        //Dette valget er mer smak og behag, men det er definitivt et verktøy som kan hjelpe hvis man føler man mister oversikt over hva man jobber med til en hver tid. 
+
+        
     }
 }

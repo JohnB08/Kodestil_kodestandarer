@@ -85,6 +85,23 @@ class Program
         names.ForEach(name => allTheNames.Append(name));
         Console.WriteLine(allTheNames);
 
+        Dictionary<string, int> nameAndAge = new (){
+            {"John", 33},
+            {"Anders", 42},
+            {"Kevin", 28},
+            {"Håkon", 29},
+            {"Andrea", 37},
+            {"Elisabeth", 25},
+            {"Eivind", 30}
+        };
+
+
+        //Skal du printe ut verdier for flere ting i en loop, bør du igjen bruke string interpolation.
+        foreach (var nameAgePair in nameAndAge)
+        {
+            Console.WriteLine($"{nameAgePair.Key} is {nameAgePair.Value} years old");
+        }
+
         //Hvis du trenger special characters og spesiell tekst formatering. 
         //Bruk string literals:
 
@@ -97,5 +114,10 @@ class Program
         """;
         Console.WriteLine(text);
         //Legg merke til at formateringen er beholdt i terminalen. 
+
+        //Tilsvarende formatering i en standard streng vil se noelunde slik ut:
+        var nonLiteralText = "Hello, I am formated text.\n\n\tI can contain \"special characters\"\nnormally not allowed in a string.\nLike\\n and \\t and \\b without escaping them.";
+        Console.WriteLine(nonLiteralText);
+        //Den er tung og vanskelig å lese for andre kodere.
     }
 }

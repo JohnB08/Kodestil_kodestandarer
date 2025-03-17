@@ -16,5 +16,14 @@ public interface IDatabaseModel
 {
     //Alle ikke-private fields, properties, methods m.m. som tilhører en class, interface, struct eller andre typer, skal også være i pascal case.
     public List<string> Names {get;set;}
+
+    /// <summary>
+    /// Bruk gjerne xml blokk-kommentarer for å lage korte, men beskrivende forklaringer på
+    /// Hva en metode gjør.
+    /// 
+    /// Har du en interface, la gjerne kommentaren ligge i Interfacen, slik at kommentaren er tilgjengelig
+    /// uavhengig av hva objekt som arver det. 
+    /// </summary>
+    /// <param name="databaseType"></param>
     public void GetConnectionString(string databaseType);
 }
